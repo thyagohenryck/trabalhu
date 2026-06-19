@@ -1,26 +1,22 @@
 function verificarSenha() {
   const senha = document.getElementById("senha").value;
-  const forca = document.getElementById("forcaSenha");
 
-  let nivel = 0;
+  let pontos = 0;
 
-  if (senha.length >= 6) nivel++;
-  if (senha.length >= 10) nivel++;
-  if (/[A-Z]/.test(senha)) nivel++;
-  if (/[0-9]/.test(senha)) nivel++;
-  if (/[^A-Za-z0-9]/.test(senha)) nivel++;
+  if (senha.length >= 8) pontos++;
+  if (/[A-Z]/.test(senha)) pontos++;
+  if (/[0-9]/.test(senha)) pontos++;
+  if (/[^A-Za-z0-9]/.test(senha)) pontos++;
 
-  if (senha.length === 0) {
-    forca.textContent = "Força da senha: -";
-    forca.style.color = "black";
-  } else if (nivel <= 2) {
-    forca.textContent = "Força da senha: FRACA";
-    forca.style.color = "red";
-  } else if (nivel <= 4) {
-    forca.textContent = "Força da senha: MÉDIA";
-    forca.style.color = "orange";
+  let resultado = "";
+
+  if (pontos <= 1) {
+    resultado = "Senha fraca ❌";
+  } else if (pontos === 2 || pontos === 3) {
+    resultado = "Senha média ⚠️";
   } else {
-    forca.textContent = "Força da senha: FORTE";
-    forca.style.color = "green";
+    resultado = "Senha forte 🔐";
   }
+
+  document.getElementById("resultado").innerText = resultado;
 }
