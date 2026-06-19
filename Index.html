@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro Seguro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Cadastro de Usuário</h1>
+
+    <form>
+      <label for="usuario">Usuário</label>
+      <input type="text" id="usuario" placeholder="Digite seu usuário" />
+
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" placeholder="Digite sua senha" oninput="verificarSenha()" />
+
+      <div id="forcaSenha" class="forca">Força da senha: -</div>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
